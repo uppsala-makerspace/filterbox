@@ -1,5 +1,5 @@
 #include "wifistats.h"
-#include "arduino_secrets.h"
+
 
 WiFiClient wifiClient; // Remove this if now declared in mqttutils.cpp
 

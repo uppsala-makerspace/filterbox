@@ -3,6 +3,7 @@
 
 #include <WiFiS3.h>
 #include <Arduino.h>
+#include "arduino_secrets.h"
 
 // WiFi and MQTT client objects (declared elsewhere)
 extern WiFiClient wifiClient;

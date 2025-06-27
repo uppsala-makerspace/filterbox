@@ -6,6 +6,7 @@
 #include "fancontrol/fancontrol.h" // for fanc
 #include <ArduinoJson.h>
 #include "arduino_secrets.h"
+#include "arduino_preferences.h"
 #include "wifi/wifistats.h" // for wifiClient
 
 extern PubSubClient mqttClient;

@@ -135,9 +135,8 @@ void sendDeviceConfiguration()
         bool pm1Sent = sendDeviceTemplate("pm1", "PM1", "pm1", "µg/m³", "{{value_json.pm1}}", "");
         bool pm25Sent = sendDeviceTemplate("pm25", "PM2.5", "pm25", "µg/m³", "{{value_json.pm25}}", "");
         bool pm10Sent = sendDeviceTemplate("pm10", "PM10", "pm10", "µg/m³", "{{value_json.pm10}}", "");
-        bool pm10Sent = sendDeviceTemplate("relay", "Fan Relay", "", "", "{{value_json.relay}}", "");
-
-        allSent = pm03CountSent && pm1Sent && pm25Sent && pm10Sent;
+        bool relaySent = sendDeviceTemplate("relay", "Fan Relay", "", "", "{{value_json.relay}}", "");
+        allSent = relaySent && pm03CountSent && pm1Sent && pm25Sent && pm10Sent;
 
         if (!allSent)
         {
