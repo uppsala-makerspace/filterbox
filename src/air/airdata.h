@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include "pmslib/PMS.h"
+#include "arduino_preferences.h"
 
 // --- Data Structure ---
 struct AirData
@@ -20,11 +21,6 @@ enum PMSState
   PMS_WAKING,
 };
 // --- Function Declarations ---
-#define SCALING_FACTOR 0.02
-#define INTERCEPT 0
-#define HISTORY_SIZE 180
-#define PMS_BREAK_INTERVAL 100000 // Interval to read PMS data in milliseconds
-#define PMS_WARMUP_TIME 30000     // PMS sensor warmup time in milliseconds
 extern AirData latestReading;
 extern uint16_t pm25History[HISTORY_SIZE];
 extern uint16_t pm10History[HISTORY_SIZE];

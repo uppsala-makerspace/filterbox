@@ -2,8 +2,8 @@
 #define FANCONTROL_H
 #define FAN_PIN 2 // Pin for the fan control, change as needed
 #include <Arduino.h>
-#define FAN_ENABLE_TIME 600000 // Minimum time the fan should be enabled in milliseconds
-#define PM25_THRESHOLD 5       // PM2.5 threshold to enable the fan, change as needed
+#include "air/airdata.h"
+#include "arduino_preferences.h"
 
 extern bool fanEnabled;
 extern unsigned long fanLastEnableTime; // Time when the fan was enabled
