@@ -18,7 +18,7 @@ void reconnectMQTT()
     while (!mqttClient.connected())
     {
         Serial.print("Attempting MQTT connection...");
-        if (mqttClient.connect("airfilter01"))
+        if (mqttClient.connect("airfilter01", MQTT_USER, MQTT_PASS))
         {
             Serial.println("connected");
         }
