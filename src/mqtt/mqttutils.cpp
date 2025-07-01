@@ -65,12 +65,7 @@ StaticJsonDocument<512> getDeviceConfigurationTemplate()
 
     doc["enabled_by_default"] = true;
     doc["state_class"] = "measurement";
-    doc["device_class"] = "humidity"; // Sets the icon in the UI
     doc["state_topic"] = "airquality/" + clientId + "/state";
-    doc["unit_of_measurement"] = "%";
-    doc["value_template"] = "{{ value_json.humidity}}";
-    doc["unique_id"] = "hum01ae";
-
     JsonObject device = doc.createNestedObject("device");
     device["identifiers"][0] = clientId.c_str();
     device["name"] = "AirFIlter box";
@@ -87,8 +82,14 @@ bool sendDeviceTemplate(const char *uniqueId, const char *name, const char *devi
     {
         doc["device_class"] = deviceClass;
     }
-    doc["unit_of_measurement"] = unitOfMeasurement;
-    doc["value_template"] = valueTemplate;
+    if (strlen(unitOfMeasurement) > 0)
+    {
+        doc["unit_of_measurement"] = unitOfMeasurement;
+    }
+    if (strlen(valueTemplate) > 0)
+    {
+        doc["value_template"] = valueTemplate;
+    }
 
     String uid = clientId + "_" + uniqueId;
     doc["unique_id"] = uid; // Concatenate uniqueId
